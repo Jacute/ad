@@ -10,7 +10,7 @@ sudo apt install git -y
 sudo apt install python3 python3-pip -y
 
 sudo apt install ca-certificates curl gnupg -y
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose -y
+sudo apt install docker-compose docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 cd ~
 git clone https://github.com/DestructiveVoice/DestructiveFarm
@@ -62,13 +62,15 @@ echo "CONFIG = {
 }
 " > DestructiveFarm/server/config.py
 
+cd DestructiveFarm/server
 echo "#!/bin/sh
 
 # Use FLASK_DEBUG=True if needed
 
 FLASK_APP=$(dirname $(readlink -f $0))/standalone.py python3 -m flask run --host 0.0.0.0 --port 56969 --with-threads
-" > DestructiveFarm/server/start_server.sh
+" > start_server.sh
 
+cd ~
 git clone --recurse-submodules https://gitlab.com/packmate/Packmate.git
 
 echo "# Локальный IP сервера на указанном интерфейсе или в pcap файле
