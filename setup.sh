@@ -10,7 +10,9 @@ sudo apt install git -y
 sudo apt install python3 python3-pip -y
 
 sudo apt install ca-certificates curl gnupg -y
-sudo apt install docker-compose docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+sudo apt install docker-compose -y
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 cd ~
 git clone https://github.com/DestructiveVoice/DestructiveFarm
